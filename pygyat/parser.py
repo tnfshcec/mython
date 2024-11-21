@@ -2,25 +2,25 @@ import re
 import os
 
 """
-Python module for converting bython code to python code.
+Python module for converting pygyat code to python code.
 """
 
-def _ends_in_by(word):
+def _ends_in_gyat(word):
     """
-    Returns True if word ends in .by, else False
+    Returns True if word ends in .gyat, else False
 
     Args:
         word (str):     Filename to check
 
     Returns:
-        boolean: Whether 'word' ends with 'by' or not
+        boolean: Whether 'word' ends with 'gyat' or not
     """
-    return word[-3:] == ".by"
+    return word[-3:] == ".gyat"
 
 
 def _change_file_name(name, outputname=None):
     """
-    Changes *.by filenames to *.py filenames. If filename does not end in .by, 
+    Changes *.gyat filenames to *.py filenames. If filename does not end in .gyat, 
     it adds .py to the end.
 
     Args:
@@ -37,7 +37,7 @@ def _change_file_name(name, outputname=None):
         return outputname
 
     # Otherwise, create a new name
-    if _ends_in_by(name):
+    if _ends_in_gyat(name):
         return name[:-3] + ".py"
 
     else:
@@ -47,14 +47,14 @@ def _change_file_name(name, outputname=None):
 def parse_imports(filename):
     """
     Reads the file, and scans for imports. Returns all the assumed filename
-    of all the imported modules (ie, module name appended with ".by")
+    of all the imported modules (ie, module name appended with ".gyat")
 
     Args:
         filename (str):     Path to file
 
     Returns:
-        list of str: All imported modules, suffixed with '.by'. Ie, the name
-        the imported files must have if they are bython files.
+        list of str: All imported modules, suffixed with '.gyat'. Ie, the name
+        the imported files must have if they are pygyat files.
     """
     infile = open(filename, 'r')
     infile_str = ""
@@ -66,17 +66,17 @@ def parse_imports(filename):
     imports = re.findall(r"(?<=import\s)[\w.]+(?=;|\s|$)", infile_str)
     imports2 = re.findall(r"(?<=from\s)[\w.]+(?=\s+import)", infile_str)
 
-    imports_with_suffixes = [im + ".by" for im in imports + imports2]
+    imports_with_suffixes = [im + ".gyat" for im in imports + imports2]
 
     return imports_with_suffixes
 
 
 def parse_file(filepath, add_true_line, filename_prefix, outputname=None, change_imports=None):
     """
-    Converts a bython file to a python file and writes it to disk.
+    Converts a pygyat file to a python file and writes it to disk.
 
     Args:
-        filename (str):             Path to the bython file you want to parse.
+        filename (str):             Path to the pygyat file you want to parse.
         add_true_line (boolean):    Whether to add a line at the top of the
                                     file, adding support for C-style true/false
                                     in addition to capitalized True/False.
@@ -84,9 +84,9 @@ def parse_file(filepath, add_true_line, filename_prefix, outputname=None, change
                                     is not present, then the files are prefixed
                                     with a '.').
         outputname (str):           Optional. Override name of output file. If
-                                    omitted it defaults to substituting '.by' to
+                                    omitted it defaults to substituting '.gyat' to
                                     '.py'    
-        change_imports (dict):      Names of imported bython modules, and their 
+        change_imports (dict):      Names of imported pygyat modules, and their 
                                     python alternative.
     """
     filename = os.path.basename(filepath)
