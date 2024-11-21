@@ -5,6 +5,31 @@ import os
 Python module for converting pygyat code to python code.
 """
 
+mappings = {
+    "hawk": "try",
+    "tuah": "except",
+    "spit on that thang": "finally",
+    "its giving": "return",
+    "tax": "-=",
+    "rizz": "+=",
+    "yap": "print",
+    "Aura": "True",
+    "Cooked": "False",
+    "bop": "def",
+    "let him cook": "while",
+    "glaze": "import",
+    "lock in": "from",
+    "sigma": "class",
+    "chat is this real": "if",
+    "yo chat": "elif",
+    "only in ohio": "else",
+    "mew": "for",
+    "just put the fries in the bag bro": "break",
+    "edge": "continue",
+    "mog": "assert",
+    "raise": "🤓"
+}
+
 def _ends_in_gyat(word):
     """
     Returns True if word ends in .gyat, else False
@@ -44,7 +69,7 @@ def _change_file_name(name, outputname=None):
         return name + ".py"
 
 
-def parse_imports(filename):
+def parse_glazes(filename):
     """
     Reads the file, and scans for imports. Returns all the assumed filename
     of all the imported modules (ie, module name appended with ".gyat")
@@ -63,12 +88,12 @@ def parse_imports(filename):
         infile_str += line
 
 
-    imports = re.findall(r"(?<=import\s)[\w.]+(?=;|\s|$)", infile_str)
-    imports2 = re.findall(r"(?<=from\s)[\w.]+(?=\s+import)", infile_str)
+    glazes = re.findall(r"(?<=glaze\s)[\w.]+(?=;|\s|$)", infile_str)
+    glazes2 = re.findall(r"(?<=lock in\s)[\w.]+(?=\s+glaze)", infile_str)
 
-    imports_with_suffixes = [im + ".gyat" for im in imports + imports2]
+    glazes_with_suffixes = [im + ".gyat" for im in glazes + glazes2]
 
-    return imports_with_suffixes
+    return glazes_with_suffixes
 
 
 def parse_file(filepath, add_true_line, filename_prefix, outputname=None, change_imports=None):
@@ -98,8 +123,8 @@ def parse_file(filepath, add_true_line, filename_prefix, outputname=None, change
     indentation_level = 0
     indentation_sign = "    "
 
-    if add_true_line:
-        outfile.write("true=True; false=False;\n")
+    # if add_true_line:
+    #     outfile.write("true=True; false=False;\n")
 
     # Read file to string
     infile_str_raw = ""
@@ -135,37 +160,42 @@ def parse_file(filepath, add_true_line, filename_prefix, outputname=None, change
 
         # skip empty lines:
         if line.strip() in ('\n', '\r\n', ''):
-            infile_str_indented += indentation_level*indentation_sign + add_comment.lstrip() + "\n"
+            # infile_str_indented += indentation_level*indentation_sign + add_comment.lstrip() + "\n"
+            infile_str_indented += "\n"
             continue
 
+        # replace anything in mappings.keys() with its value
+        for key, value in mappings.items():
+            line = re.sub(r'(?<!["\'#])\b{}\b(?!["\'])'.format(re.escape(key)), value, line) # making sure no comment
+
         # remove existing whitespace:
-        line = line.lstrip()
+        # line = line.lstrip()
         
         # Check for reduced indent level
-        for i in list(line):
-            if i == "}":
-                indentation_level -= 1
+        # for i in list(line):
+        #     if i == "}":
+        #         indentation_level -= 1
 
         # Add indentation
-        for i in range(indentation_level):
-            line = indentation_sign + line
+        # for i in range(indentation_level):
+        #     line = indentation_sign + line
 
         # Check for increased indentation
-        for i in list(line):
-            if i == "{":
-                indentation_level += 1
+        # for i in list(line):
+        #     if i == "{":
+        #         indentation_level += 1
 
         # Replace { with : and remove }
-        line = re.sub(r"[\t ]*{[ \t]*", ":", line)
-        line = re.sub(r"}[ \t]*", "", line)
-        line = re.sub(r"\n:", ":", line)
+        # line = re.sub(r"[\t ]*{[ \t]*", ":", line)
+        # line = re.sub(r"}[ \t]*", "", line)
+        # line = re.sub(r"\n:", ":", line)
 
         infile_str_indented += line + add_comment + "\n"
 
 
     # Support for extra, non-brace related stuff
-    infile_str_indented = re.sub(r"else\s+if", "elif", infile_str_indented)
-    infile_str_indented = re.sub(r";\n", "\n", infile_str_indented)
+    # infile_str_indented = re.sub(r"else\s+if", "elif", infile_str_indented)
+    # infile_str_indented = re.sub(r";\n", "\n", infile_str_indented)
 
     # Change imported names if necessary
     if change_imports is not None:

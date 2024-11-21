@@ -41,9 +41,6 @@ def main():
     argparser.add_argument("-k", "--keep",
         help="keep generated python files",
         action="store_true")
-    argparser.add_argument("-t", "--lower_true",
-        help="adds support for lower case true/false",
-        action="store_true")
     argparser.add_argument("-2", "--python2",
         help="use python2 instead of python3 (default)",
         action="store_true")
@@ -98,7 +95,7 @@ def main():
     i = 0
     while i < len(parse_que):
         try:
-            import_files = parser.parse_imports(parse_que[i])
+            import_files = parser.parse_glazes(parse_que[i])
 
         except FileNotFoundError:
             logger.log_error("No file named '%s'" % parse_que[i])

@@ -10,7 +10,7 @@ Module for handling imports of PyGyat files in Python code.
 """
 
 
-def pygyat_import(module_name, globals, logger=None):
+def glaze(module_name, globals, logger=None):
     """
     Import PyGyat files in Python code. Example:
     
