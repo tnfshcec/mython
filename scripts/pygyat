@@ -111,7 +111,7 @@ def main():
     if path_prefix != "":
         import_translations = {}
         for file in parse_que:
-            import_translations[file[:-3]] = path_prefix + file[:-3]
+            import_translations[file[:-4]] = path_prefix + file[:-4]
 
     else:
         import_translations = None

@@ -16,18 +16,33 @@ mappings = {
     "Aura": "True",
     "Cooked": "False",
     "bop": "def",
-    "let him cook": "while",
+    "gooning": "while",
     "glaze": "import",
     "lock in": "from",
-    "sigma": "class",
+    "skibidi": "class",
     "chat is this real": "if",
     "yo chat": "elif",
     "only in ohio": "else",
-    "mew": "for",
+    "mewing": "for",
     "just put the fries in the bag bro": "break",
     "edge": "continue",
     "mog": "assert",
-    "raise": "🤓"
+    "erm": "raise",
+    "pookie": "with",
+    "ahh": "as",
+    "GOAT": "global",
+    "motion": "nonlocal",
+    "delulu": "del",
+    "pause no diddy": "yield from",
+    "pause": "yield",
+    "NPC": "None",
+    "unc": "self",
+    "huzz": "range",
+    "sigma twin": ">=",
+    "beta twin": "<=",
+    "twin": "==",
+    "sigma": ">",
+    "beta": "<",
 }
 
 def _ends_in_gyat(word):
@@ -40,7 +55,7 @@ def _ends_in_gyat(word):
     Returns:
         boolean: Whether 'word' ends with 'gyat' or not
     """
-    return word[-3:] == ".gyat"
+    return word[-4:] == ".gyat"
 
 
 def _change_file_name(name, outputname=None):
@@ -63,7 +78,7 @@ def _change_file_name(name, outputname=None):
 
     # Otherwise, create a new name
     if _ends_in_gyat(name):
-        return name[:-3] + ".py"
+        return name[:-4] + ".py"
 
     else:
         return name + ".py"
