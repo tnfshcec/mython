@@ -12,11 +12,11 @@ Module for handling imports of PyGyat files in Python code.
 
 def glaze(module_name, globals, logger=None):
     """
-    Import PyGyat files in Python code. Example:
+    Import (glaze) PyGyat files in Python code. Example:
     
     ``` python
-    from pygyat.importing import pygyat_import
-    pygyat_import("test_module", globals())
+    from pygyat.importing import glaze
+    glaze("test_module", globals())
 
     # Now, 'test_module' is available like any other module:
     test_module.func()

@@ -211,7 +211,7 @@ def parse_file(filepath, filename_prefix, outputname=None, change_imports=None):
     # Change imported names if necessary
     if change_imports is not None:
         for module in change_imports:
-            infile_str_indented = re.sub("(?<=import\\s){}".format(module), "{} as {}".format(change_imports[module], module), infile_str_indented)
+            infile_str_indented = re.sub(r"(?<=import\\s{})\\b(?!\\s+as\\b)".format(module), "{} as {}".format(change_imports[module], module), infile_str_indented)
             infile_str_indented = re.sub("(?<=from\\s){}(?=\\s+import)".format(module), change_imports[module], infile_str_indented)
 
     outfile.write(infile_str_indented)
