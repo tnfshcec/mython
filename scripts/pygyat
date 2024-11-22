@@ -17,7 +17,6 @@ Flags and arguments:
     -v, --verbose:      Print progress
     -c, --compile:      Translate to python file and store; do not run
     -k, --keep:         Keep generated python files
-    -t, --lower_true:   Adds support for lower case true/false
     -2, --python2:      Use python2 instead of python3
     -o, --output:       Specify name of output file (if -c is present)
     input,              PyGyat files to process
@@ -130,7 +129,7 @@ def main():
             else:
                 outputname = cmd_args.output[0]
 
-            parser.parse_file(file, cmd_args.lower_true, path_prefix, outputname, import_translations)
+            parser.parse_file(file, path_prefix, outputname, import_translations)
 
     except (TypeError, FileNotFoundError) as e:
         logger.log_error("Error while parsing '%s'.\n%s" % (current_file_name, str(e)))

@@ -18,16 +18,11 @@ bop test_function():
             a = 10
             just put the fries in the bag bro
 
-    yap(a)
-    its giving Aura
-
-    hawk:
-        pass
-    tuah:
-        pass
-
     mewing i in huzz(10):
         pass
+
+    yap(a)
+    its giving Aura
         
 res = test_function()
 yap(res)

@@ -27,7 +27,7 @@ mappings = {
     "just put the fries in the bag bro": "break",
     "edge": "continue",
     "mog": "assert",
-    "erm": "raise",
+    "crashout": "raise",
     "pookie": "with",
     "ahh": "as",
     "GOAT": "global",
@@ -111,15 +111,12 @@ def parse_glazes(filename):
     return glazes_with_suffixes
 
 
-def parse_file(filepath, add_true_line, filename_prefix, outputname=None, change_imports=None):
+def parse_file(filepath, filename_prefix, outputname=None, change_imports=None):
     """
     Converts a pygyat file to a python file and writes it to disk.
 
     Args:
         filename (str):             Path to the pygyat file you want to parse.
-        add_true_line (boolean):    Whether to add a line at the top of the
-                                    file, adding support for C-style true/false
-                                    in addition to capitalized True/False.
         filename_prefix (str):      Prefix to resulting file name (if -c or -k
                                     is not present, then the files are prefixed
                                     with a '.').
@@ -135,8 +132,8 @@ def parse_file(filepath, add_true_line, filename_prefix, outputname=None, change
     infile = open(filepath, 'r')
     outfile = open(filename_prefix + _change_file_name(filename, outputname), 'w')
 
-    indentation_level = 0
-    indentation_sign = "    "
+    # indentation_level = 0
+    # indentation_sign = "    "
 
     # if add_true_line:
     #     outfile.write("true=True; false=False;\n")
