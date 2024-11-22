@@ -3,6 +3,7 @@ Python with braces. Because Python is awesome, but whitespace is awful.
 
 PyGyat is a Python preprosessor which translates curly brackets into indentation.
 
+Implementation based on [Bython](https://github.com/mathialo/bython).
 
 ## Content of README:
   * [Key features](#key-features)
