@@ -1,7 +1,7 @@
-# Bython
+# PyGyat
 Python with braces. Because Python is awesome, but whitespace is awful.
 
-Bython is a Python preprosessor which translates curly brackets into indentation.
+PyGyat is a Python preprosessor which translates curly brackets into indentation.
 
 
 ## Content of README:
@@ -24,7 +24,7 @@ Bython is a Python preprosessor which translates curly brackets into indentation
 ```python
 def print_message(num_of_times) {
     for i in range(num_of_times) {
-        print("Bython is awesome!");
+        print("PyGyat is awesome!");
     }
 }
 
@@ -36,17 +36,17 @@ if __name__ == "__main__" {
 
 ## Installation
 
-You can install Bython directly from PyPI using pip (with or without `sudo -H`, depending on your Python installation):
+You can install PyGyat directly from PyPI using pip (with or without `sudo -H`, depending on your Python installation):
 
 ```
-$ sudo -H pip3 install bython
+$ sudo -H pip3 install pygyat
 ```
 
 If you for some reason want to install it from the git repository you can use `git clone` and do a local install instead:
 
 ```
-$ git clone https://github.com/mathialo/bython.git
-$ cd bython
+$ git clone https://github.com/mathialo/pygyat.git
+$ cd pygyat
 $ sudo -H pip3 install .
 ```
 
@@ -55,7 +55,7 @@ The git version is sometimes a tiny bit ahead of the PyPI version, but not signi
 To uninstall, simply run 
 
 ```
-$ sudo pip3 uninstall bython
+$ sudo pip3 uninstall pygyat
 ```
 
 which will undo all the changes.
@@ -64,34 +64,34 @@ which will undo all the changes.
 
 ## Quick intro
 
-Bython works by first translating Bython-files (suggested file ending: .by) into Python-files, and then using Python to run them. You therefore need a working installation of Python for Bython to work.
+PyGyat works by first translating PyGyat-files (suggested file ending: .gyat) into Python-files, and then using Python to run them. You therefore need a working installation of Python for PyGyat to work.
 
 
-To run a Bython program, simply type
-
-```
-$ bython source.by arg1 arg2 ...
-```
-
-to run `source.by` with arg1, arg2, ... as command line arguments. If you want more details on how to run Bython files (flags, etc), type
+To run a PyGyat program, simply type
 
 ```
-$ bython -h
+$ pygyat source.gyat arg1 arg2 ...
+```
+
+to run `source.gyat` with arg1, arg2, ... as command line arguments. If you want more details on how to run PyGyat files (flags, etc), type
+
+```
+$ pygyat -h
 ```
 
 to print the built-in help page. You can also consult the man page by typing
 
 ```
-$ man bython
+$ man pygyat
 ```
 
-Bython also includes a translator from Python to Bython. This is found via the `py2by` command:
+PyGyat also includes a translator from Python to PyGyat. This is found via the `py2by` command:
 
 ```
 $ py2by test.py
 ```
 
-This will create a Bython file called `test.by`. A full explanation of `py2by`, is found by typing
+This will create a PyGyat file called `test.gyat`. A full explanation of `py2by`, is found by typing
 
 ```
 $ py2by -h
@@ -103,15 +103,15 @@ or by consulting the man page:
 $ man py2by
 ```
 
-For a more in-depth intro, consult the [bython introduction](INTRODUCTION.md)
+For a more in-depth intro, consult the [pygyat introduction](INTRODUCTION.md)
 
 
 ## Structure of the repository
 
-At the moment, Bython is written in Python. The git repository is structured into 4 directories:
+At the moment, PyGyat is written in Python. The git repository is structured into 4 directories:
 
- * `bython` contains a Python package containing the parser and other utilities used by the main script
+ * `pygyat` contains a Python package containing the parser and other utilities used by the main script
  * `etc` contains manual pages and other auxillary files
  * `scripts` contains the runnable Python scripts, ie the ones run from the shell
- * `testcases` contains a couple of sample \*.by and \*.py files intended for testing the implementation
+ * `testcases` contains a couple of sample \*.gyat and \*.py files intended for testing the implementation
 

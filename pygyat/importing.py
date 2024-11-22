@@ -41,7 +41,7 @@ def glaze(module_name, globals, logger=None):
 
     logger.log_info("Parsing %s" % path)
     try:
-        pygyat.parser.parse_file(path, False, os.path.join(sys.path[0], "python_"))
+        pygyat.parser.parse_file(path, os.path.join(sys.path[0], "python_"))
 
         error_during_parsing = None
 

@@ -55,7 +55,7 @@ def _ends_in_gyat(word):
     Returns:
         boolean: Whether 'word' ends with 'gyat' or not
     """
-    return word[-4:] == ".gyat"
+    return word[-5:] == ".gyat"
 
 
 def _change_file_name(name, outputname=None):
@@ -78,7 +78,7 @@ def _change_file_name(name, outputname=None):
 
     # Otherwise, create a new name
     if _ends_in_gyat(name):
-        return name[:-4] + ".py"
+        return name[:-5] + ".py"
 
     else:
         return name + ".py"
