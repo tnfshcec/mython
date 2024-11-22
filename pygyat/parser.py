@@ -132,8 +132,8 @@ def parse_file(filepath, filename_prefix, outputname=None, change_imports=None):
     infile = open(filepath, 'r')
     outfile = open(filename_prefix + _change_file_name(filename, outputname), 'w')
 
-    # indentation_level = 0
-    # indentation_sign = "    "
+    indentation_level = 0
+    indentation_sign = "    "
 
     # if add_true_line:
     #     outfile.write("true=True; false=False;\n")
@@ -172,8 +172,7 @@ def parse_file(filepath, filename_prefix, outputname=None, change_imports=None):
 
         # skip empty lines:
         if line.strip() in ('\n', '\r\n', ''):
-            # infile_str_indented += indentation_level*indentation_sign + add_comment.lstrip() + "\n"
-            infile_str_indented += "\n"
+            infile_str_indented += add_comment + "\n"
             continue
 
         # replace anything in mappings.keys() with its value

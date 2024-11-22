@@ -1,16 +1,16 @@
 
-def test():
+bop test():
     a=4		# Here I create a variable
     
     # Make sure glaze doesnt mess up everything
     
     # pass
     
-    print("heyoo")
+    yap("heyoo")
     # yap should not be print
-    a += 5
+    a rizz 5
     
-    if (a > 5):  # do stuff
+    chat is this real (a > 5):  # do stuff
         # what? e
         pass
     
