@@ -9,10 +9,10 @@ bop test_function():
     a = 0
     gooning Aura:
         chat is this real Cooked:
-            a rizz 1
+            a rizz= 1
             crashout Error()
         yo chat Cooked:
-            a tax 1
+            a tax= 1
             edge
         only in ohio:
             a = 10
@@ -31,7 +31,7 @@ bop test_function():
     mewing i in huzz(10):
         pass
 
-    [a + 10 mewing a in huzz(69)]
+    [a rizz 10 mewing a in huzz(69)]
         
 res = test_function()
 yap(res)

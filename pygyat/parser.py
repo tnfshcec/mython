@@ -1,49 +1,11 @@
 import re
 import os
 
+from pygyat import GYAT2PY_MAPPINGS
+
 """
 Python module for converting pygyat code to python code.
 """
-
-mappings = {
-    "hawk": "try",
-    "tuah": "except",
-    "spit on that thang": "finally",
-    "its giving": "return",
-    "tax": "-=",
-    "rizz": "+=",
-    "yap": "print",
-    "Aura": "True",
-    "Cooked": "False",
-    "bop": "def",
-    "gooning": "while",
-    "glaze": "import",
-    "lock in": "from",
-    "skibidi": "class",
-    "chat is this real": "if",
-    "yo chat": "elif",
-    "only in ohio": "else",
-    "mewing": "for",
-    "just put the fries in the bag bro": "break",
-    "edge": "continue",
-    "mog": "assert",
-    "crashout": "raise",
-    "pookie": "with",
-    "ahh": "as",
-    "GOAT": "global",
-    "motion": "nonlocal",
-    "delulu": "del",
-    "pause no diddy": "yield from",
-    "pause": "yield",
-    "NPC": "None",
-    "unc": "self",
-    "huzz": "range",
-    "sigma twin": ">=",
-    "beta twin": "<=",
-    "twin": "==",
-    "sigma": ">",
-    "beta": "<",
-}
 
 def _ends_in_gyat(word):
     """
@@ -127,29 +89,14 @@ def parse_file(filepath, filename_prefix, outputname=None, change_imports=None):
                                     python alternative.
     """
     filename = os.path.basename(filepath)
-    filedir = os.path.dirname(filepath)
 
     infile = open(filepath, 'r')
     outfile = open(filename_prefix + _change_file_name(filename, outputname), 'w')
-
-    indentation_level = 0
-    indentation_sign = "    "
-
-    # if add_true_line:
-    #     outfile.write("true=True; false=False;\n")
 
     # Read file to string
     infile_str_raw = ""
     for line in infile:
         infile_str_raw += line
-
-    # Add 'pass' where there is only a {}. 
-    # 
-    # DEPRECATED FOR NOW. This way of doing
-    # it is causing a lot of problems with {} in comments. The feature is removed
-    # until I find another way to do it. 
-    
-    # infile_str_raw = re.sub(r"{[\s\n\r]*}", "{\npass\n}", infile_str_raw)
 
     # Fix indentation
     infile_str_indented = ""
@@ -176,37 +123,11 @@ def parse_file(filepath, filename_prefix, outputname=None, change_imports=None):
             continue
 
         # replace anything in mappings.keys() with its value
-        for key, value in mappings.items():
+        for key, value in GYAT2PY_MAPPINGS.items():
             line = re.sub(r'(?<!["\'#])\b{}\b(?!["\'])'.format(re.escape(key)), value, line) # making sure no comment
-
-        # remove existing whitespace:
-        # line = line.lstrip()
-        
-        # Check for reduced indent level
-        # for i in list(line):
-        #     if i == "}":
-        #         indentation_level -= 1
-
-        # Add indentation
-        # for i in range(indentation_level):
-        #     line = indentation_sign + line
-
-        # Check for increased indentation
-        # for i in list(line):
-        #     if i == "{":
-        #         indentation_level += 1
-
-        # Replace { with : and remove }
-        # line = re.sub(r"[\t ]*{[ \t]*", ":", line)
-        # line = re.sub(r"}[ \t]*", "", line)
-        # line = re.sub(r"\n:", ":", line)
 
         infile_str_indented += line + add_comment + "\n"
 
-
-    # Support for extra, non-brace related stuff
-    # infile_str_indented = re.sub(r"else\s+if", "elif", infile_str_indented)
-    # infile_str_indented = re.sub(r";\n", "\n", infile_str_indented)
 
     # Change imported names if necessary
     if change_imports is not None:

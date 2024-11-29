@@ -1,5 +1,41 @@
-import pygyat.parser
-import pygyat.logger
-import pygyat.importing
-
 VERSION_NUMBER = "1.0"
+
+GYAT2PY_MAPPINGS = {
+    "hawk": "try",
+    "tuah": "except",
+    "spit on that thang": "finally",
+    "its giving": "return",
+    "fanum tax": "-",
+    "rizz": "+",
+    "yap": "print",
+    "Aura": "True",
+    "Cooked": "False",
+    "bop": "def",
+    "gooning": "while",
+    "glaze": "import",
+    "lock in": "from",
+    "skibidi": "class",
+    "chat is this real": "if",
+    "yo chat": "elif",
+    "only in ohio": "else",
+    "mewing": "for",
+    "just put the fries in the bag bro": "break",
+    "edge": "continue",
+    "mog": "assert",
+    "crashout": "raise",
+    "pookie": "with",
+    "ahh": "as",
+    "GOAT": "global",
+    "motion": "nonlocal",
+    "delulu": "del",
+    "pause no diddy": "yield from",
+    "pause": "yield",
+    "NPC": "None",
+    "unc": "self",
+    "huzz": "range",
+    "sigma twin": ">=",
+    "beta twin": "<=",
+    "twin": "==",
+    "sigma": ">",
+    "beta": "<",
+}

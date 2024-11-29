@@ -30,7 +30,7 @@ def main():
         formatter_class=argparse.RawTextHelpFormatter)
     argparser.add_argument("-V", "--version", 
         action="version", 
-        version="PyGyat v%s\nMathias Lohne and Tristan Pepin 2018" % VERSION_NUMBER)
+        version="PyGyat v%s\nShamith Pasula 2024" % VERSION_NUMBER)
     argparser.add_argument("-v", "--verbose", 
         help="print progress",
         action="store_true") 
