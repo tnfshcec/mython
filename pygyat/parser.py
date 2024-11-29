@@ -122,9 +122,14 @@ def parse_file(filepath, filename_prefix, outputname=None, change_imports=None):
             infile_str_indented += add_comment + "\n"
             continue
 
-        # replace anything in mappings.keys() with its value
+        # disallow real python
         for key, value in GYAT2PY_MAPPINGS.items():
-            line = re.sub(r'(?<!["\'#])\b{}\b(?!["\'])'.format(re.escape(key)), value, line) # making sure no comment
+            deescaped_key = key.replace('\s+', ' ')
+            line = re.sub(r'(?<!["\'#])\b{}\b(?!["\'])'.format(re.escape(value)), f"dont_use_{value}_use_{deescaped_key}", line)
+
+        # replace anything in mappings.keys() with its value, ignore comments
+        for key, value in GYAT2PY_MAPPINGS.items():
+            line = re.sub(r'(?<!["\'#])\b{}\b(?!["\'])'.format(key), value, line)
 
         infile_str_indented += line + add_comment + "\n"
 
