@@ -1,4 +1,4 @@
-VERSION_NUMBER = "1.0.0-beta"
+VERSION_NUMBER = "1.0.1-beta"
 
 GYAT2PY_MAPPINGS = {
     "hawk": "try",
