@@ -7,6 +7,7 @@ from pygyat import GYAT2PY_MAPPINGS
 Python module for converting pygyat code to python code.
 """
 
+
 def _ends_in_gyat(word):
     """
     Returns True if word ends in .gyat, else False
@@ -22,7 +23,7 @@ def _ends_in_gyat(word):
 
 def _change_file_name(name, outputname=None):
     """
-    Changes *.gyat filenames to *.py filenames. If filename does not end in .gyat, 
+    Changes *.gyat filenames to *.py filenames. If filename does not end in .gyat,
     it adds .py to the end.
 
     Args:
@@ -58,12 +59,11 @@ def parse_glazes(filename):
         list of str: All imported modules, suffixed with '.gyat'. Ie, the name
         the imported files must have if they are pygyat files.
     """
-    infile = open(filename, 'r')
+    infile = open(filename, "r")
     infile_str = ""
 
     for line in infile:
         infile_str += line
-
 
     glazes = re.findall(r"(?<=glaze\s)[\w.]+(?=;|\s|$)", infile_str)
     glazes2 = re.findall(r"(?<=lock in\s)[\w.]+(?=\s+glaze)", infile_str)
@@ -84,14 +84,14 @@ def parse_file(filepath, filename_prefix, outputname=None, change_imports=None):
                                     with a '.').
         outputname (str):           Optional. Override name of output file. If
                                     omitted it defaults to substituting '.gyat' to
-                                    '.py'    
-        change_imports (dict):      Names of imported pygyat modules, and their 
+                                    '.py'
+        change_imports (dict):      Names of imported pygyat modules, and their
                                     python alternative.
     """
     filename = os.path.basename(filepath)
 
-    infile = open(filepath, 'r')
-    outfile = open(filename_prefix + _change_file_name(filename, outputname), 'w')
+    infile = open(filepath, "r")
+    outfile = open(filename_prefix + _change_file_name(filename, outputname), "w")
 
     # Read file to string
     infile_str_raw = ""
@@ -118,27 +118,36 @@ def parse_file(filepath, filename_prefix, outputname=None, change_imports=None):
             add_comment = ""
 
         # skip empty lines:
-        if line.strip() in ('\n', '\r\n', ''):
+        if line.strip() in ("\n", "\r\n", ""):
             infile_str_indented += add_comment + "\n"
             continue
 
+        # replace anything in mappings.keys() with its value, ignore comments
         # disallow real python
         for key, value in GYAT2PY_MAPPINGS.items():
-            deescaped_key = key.replace('\s+', ' ')
-            line = re.sub(r'(?<!["\'#])\b{}\b(?!["\'])'.format(re.escape(value)), f"dont_use_{value}_use_{deescaped_key}", line)
-
-        # replace anything in mappings.keys() with its value, ignore comments
-        for key, value in GYAT2PY_MAPPINGS.items():
+            deescaped_key = key.replace("\s+", " ")
+            line = re.sub(
+                r'(?<!["\'#])\b{}\b(?!["\'])'.format(re.escape(value)),
+                f"dont_use_{value}_use_{deescaped_key}",
+                line,
+            )
             line = re.sub(r'(?<!["\'#])\b{}\b(?!["\'])'.format(key), value, line)
 
         infile_str_indented += line + add_comment + "\n"
 
-
     # Change imported names if necessary
     if change_imports is not None:
         for module in change_imports:
-            infile_str_indented = re.sub(r"(?<=import\\s{})\\b(?!\\s+as\\b)".format(module), "{} as {}".format(change_imports[module], module), infile_str_indented)
-            infile_str_indented = re.sub("(?<=from\\s){}(?=\\s+import)".format(module), change_imports[module], infile_str_indented)
+            infile_str_indented = re.sub(
+                r"(?<=import\\s{})\\b(?!\\s+as\\b)".format(module),
+                "{} as {}".format(change_imports[module], module),
+                infile_str_indented,
+            )
+            infile_str_indented = re.sub(
+                "(?<=from\\s){}(?=\\s+import)".format(module),
+                change_imports[module],
+                infile_str_indented,
+            )
 
     outfile.write(infile_str_indented)
 

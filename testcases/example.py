@@ -5,20 +5,20 @@ from random import choice
 class Rizzler:
     pass
 
-def test_function():
-    a = 0
+def kai_cenat():
+    duke_dennis = 0
     while True:
         if False:
-            a += 1
+            duke_dennis = duke_dennis + 1
             raise Error()
-        elif False:
-            a -= 1
+        elif duke_dennis == None:
+            duke_dennis = duke_dennis - 1
             continue
         else:
-            a = 10
+            duke_dennis = 10
             break
 
-    print(a)
+    print(duke_dennis)
     return True
 
     try:
@@ -31,8 +31,6 @@ def test_function():
     for i in range(10):
         pass
 
-    [a + 10 for a in range(69)]
+    [duke_dennis + 10 for duke_dennis in range(69)]
 
-res = test_function()
-print(res)
-
+print(kai_cenat())
