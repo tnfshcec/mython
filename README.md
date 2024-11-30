@@ -55,6 +55,10 @@ $ sudo pip3 uninstall pygyat
 
 which will undo all the changes.
 
+To install the `vscode-pygyat` extension for Visual Studio Code, visit:
+
+[https://marketplace.visualstudio.com/items?itemName=shamith-pasula.vscode-pygyat](https://marketplace.visualstudio.com/items?itemName=shamith-pasula.vscode-pygyat)
+
 ## Keyword mappings
 
 Below is a table of all of the Python keywords or operators that should be replaced by their corresponding PyGyat keyword. Python keywords that don't have a mapping or aren't in this table can just be used as is. If you want to request that a new mapping be made, please submit a pull request.
