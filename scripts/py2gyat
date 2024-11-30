@@ -157,6 +157,10 @@ def reverse_parse(filename, outputname):
             infile_str_indented += add_comment + "\n"
             continue
 
+        # disallow PyGyat in original Python file
+        for value, key in GYAT2PY_MAPPINGS.items():
+            line = re.sub(r'(?<!["\'#])\b{}\b(?!["\'])'.format(key), f"{key}_is_not_valid_python", line)
+
         # replace anything in mappings.keys() with its value but opposite
         for value, key in GYAT2PY_MAPPINGS.items():
             line = re.sub(

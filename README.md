@@ -1,7 +1,7 @@
 # PyGyat
-Python with braces. Because Python is awesome, but whitespace is awful.
+Python with rizz. Be a sigma and mog your skibidi toilet opps before they crashout. This language can only be used in Ohio.
 
-PyGyat is a Python preprosessor which translates curly brackets into indentation.
+PyGyat is a Python preprosessor which translates regular Python code into brainrot by replacing certain keywords, operators, and built in functions with iPad kid vocabulary.
 
 Implementation based on [Bython](https://github.com/mathialo/bython).
 
@@ -9,31 +9,87 @@ Implementation based on [Bython](https://github.com/mathialo/bython).
   * [Key features](#key-features)
   * [Code example](#code-example)
   * [Installation](#installation)
+  * [Keyword mappings](#keyword-mappings)
   * [Quick intro](#quick-intro)
   * [Structure of the repository](#structure-of-the-repository)
 
 
 ## Key features
 
- * "Forget" about indentaition. You should still write beautiful code, but if you mess up with tabs/spaces, or copy one piece of code to another that uses a different indentation style, it won't break.
+ * Write Python using brainrot terms instead.
 
- * Uses Python for interpretation, that means that all of your existing modules, like NumPy and Matplotlib still works.
+ * Run PyGyat files using the `pygyat` command, just like Python.
 
+ * Translate Python files to PyGyat and vice versa.
+
+ * Real Python keywords that have defined PyGyat mappings will not be allowed.
+
+ * Edit your PyGyat code with syntax highlighting with the `vscode-pygyat` extension.
 
 ## Code example
+<table>
+<tr>
+<td><b>PyGyat</b></td> <td><b>Translated to Python</b></td>
+</tr>
+<tr>
+<td>
 
-```python
-def print_message(num_of_times) {
-    for i in range(num_of_times) {
-        print("PyGyat is awesome!");
-    }
-}
+```
+glaze numpy ahh np
+    glaze matplotlib.pyplot ahh plt
+    lock in random glaze choice
 
-if __name__ == "__main__" {
-    print_message(10);
-}
+    skibidi Rizzler:
+        pass
+
+    bop test_function():
+        a = 0
+        let him cook Aura:
+            chat is this real Cooked:
+                a rizz= 1
+                crashout Error()
+            yo chat Cooked:
+                a tax= 1
+                edge
+            only in ohio:
+                a = 10
+                just put the fries in the bag bro
+
+        yap(a)
+        its giving Aura
 ```
 
+</td>
+<td>
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from random import choice
+
+class Rizzler:
+    pass
+
+def test_function():
+    a = 0
+    while True:
+        if False:
+            a += 1
+            raise Error()
+        elif False:
+            a -= 1
+            continue
+        else:
+            a = 10
+            break
+
+    print(a)
+    return True
+```
+
+</td>
+</tr>
+</table>
 
 ## Installation
 
@@ -46,7 +102,7 @@ $ sudo -H pip3 install pygyat
 If you for some reason want to install it from the git repository you can use `git clone` and do a local install instead:
 
 ```
-$ git clone https://github.com/mathialo/pygyat.git
+$ git clone https://github.com/shamith09/pygyat.git
 $ cd pygyat
 $ sudo -H pip3 install .
 ```
@@ -61,11 +117,65 @@ $ sudo pip3 uninstall pygyat
 
 which will undo all the changes.
 
+## Keyword mappings
 
+Below is a table of all of the Python keywords or operators that should be replaced by their corresponding PyGyat keyword. Python keywords that don't have a mapping or aren't in this table can just be used as is. If you want to request that a new mapping be made, please submit a pull request.
+
+| Python Keyword/Operator | PyGyat Translation          |
+|-------------------------|----------------------------------|
+| try/except/finally      | hawk/tuah/spit on that thang     |
+| return                  | its giving                       |
+| -                       | fanum tax                        |
+| +                       | rizz                             |
+| print                   | yap                              |
+| True                    | Aura                             |
+| False                   | Cooked                           |
+| def                     | bop                              |
+| while                   | let him cook                     |
+| import                  | glaze                            |
+| from                    | lock in                          |
+| class                   | skibidi                          |
+| if/elif/else            | chat is this real/yo chat/only in ohio |
+| for                     | mewing                           |
+| break                   | just put the fries in the bag bro|
+| continue                | edge                             |
+| assert                  | sus                              |
+| raise                   | crashout                         |
+| in                      | diddy                            |
+| is                      |                                  |
+| and                     |                                  |
+| or                      |                                  |
+| not                     |                                  |
+| with                    | pookie                           |
+| as                      | ahh                              |
+| global                  | GOAT                             |
+| nonlocal                | motion                           |
+| del                     | delulu                           |
+| yield                   | pause                            |
+| yield from              | pause no diddy                   |
+| None                    | NPC                              |
+| pass                    | pluh                             |
+| self                    | unc                              |
+| range                   | huzz                             |
+| >                       | sigma                            |
+| <                       | beta                             |
+| ≥                       | sigma twin                       |
+| ≤                       | beta twin                        |
+| ==                      | twin                             |
+| =                       |                                  |
+| async                   |                                  |
+| await                   |                                  |
+| open                    | mog                              |
+| read                    |                                  |
+| write                   |                                  |
+| close                   | demure                           |
+| list                    |                                  |
+| set                     |                                  |
+| dict                    |                                  |
 
 ## Quick intro
 
-PyGyat works by first translating PyGyat-files (suggested file ending: .gyat) into Python-files, and then using Python to run them. You therefore need a working installation of Python for PyGyat to work.
+PyGyat works by first translating PyGyat files (suggested file ending: .gyat) into Python-files, and then using Python to run them. You therefore need a working installation of Python for PyGyat to work.
 
 
 To run a PyGyat program, simply type
@@ -86,26 +196,23 @@ to print the built-in help page. You can also consult the man page by typing
 $ man pygyat
 ```
 
-PyGyat also includes a translator from Python to PyGyat. This is found via the `py2by` command:
+PyGyat also includes a translator from Python to PyGyat. This is found via the `py2gyat` command:
 
 ```
-$ py2by test.py
+$ py2gyat test.py
 ```
 
-This will create a PyGyat file called `test.gyat`. A full explanation of `py2by`, is found by typing
+This will create a PyGyat file called `test.gyat`. A full explanation of `py2gyat`, is found by typing
 
 ```
-$ py2by -h
+$ py2gyat -h
 ```
 
 or by consulting the man page:
 
 ```
-$ man py2by
+$ man py2gyat
 ```
-
-For a more in-depth intro, consult the [pygyat introduction](INTRODUCTION.md)
-
 
 ## Structure of the repository
 
@@ -115,4 +222,4 @@ At the moment, PyGyat is written in Python. The git repository is structured int
  * `etc` contains manual pages and other auxillary files
  * `scripts` contains the runnable Python scripts, ie the ones run from the shell
  * `testcases` contains a couple of sample \*.gyat and \*.py files intended for testing the implementation
-
+ * [`vscode-pygyat`](https://github.com/shamith09/vscode-pygyat) contains the Visual Studio Code extension that enables syntax highlighting in VS Code.

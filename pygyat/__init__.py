@@ -1,4 +1,4 @@
-VERSION_NUMBER = "1.0"
+VERSION_NUMBER = "0.1.0"
 
 GYAT2PY_MAPPINGS = {
     "hawk": "try",
@@ -21,7 +21,7 @@ GYAT2PY_MAPPINGS = {
     "mewing": "for",
     "just\s+put\s+the\s+fries\s+in\s+the\s+bag\s+bro": "break",
     "edge": "continue",
-    "mog": "assert",
+    "sus": "assert",
     "crashout": "raise",
     "pookie": "with",
     "ahh": "as",
@@ -38,5 +38,6 @@ GYAT2PY_MAPPINGS = {
     "twin": "==",
     "sigma": ">",
     "beta": "<",
-    "diddy": "in"
+    "diddy": "in",
+    "pluh": "pass"
 }

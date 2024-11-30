@@ -50,6 +50,7 @@ nosetests.xml
 coverage.xml
 *.cover
 .hypothesis/
+testcases/hidden
 
 # Translations
 *.mo
