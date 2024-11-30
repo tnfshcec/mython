@@ -27,69 +27,7 @@ Implementation based on [Bython](https://github.com/mathialo/bython).
  * Edit your PyGyat code with syntax highlighting with the `vscode-pygyat` extension.
 
 ## Code example
-<table>
-<tr>
-<td><b>PyGyat</b></td> <td><b>Translated to Python</b></td>
-</tr>
-<tr>
-<td>
-
-```
-glaze numpy ahh np
-    glaze matplotlib.pyplot ahh plt
-    lock in random glaze choice
-
-    skibidi Rizzler:
-        pass
-
-    bop test_function():
-        a = 0
-        let him cook Aura:
-            chat is this real Cooked:
-                a rizz= 1
-                crashout Error()
-            yo chat Cooked:
-                a tax= 1
-                edge
-            only in ohio:
-                a = 10
-                just put the fries in the bag bro
-
-        yap(a)
-        its giving Aura
-```
-
-</td>
-<td>
-
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-from random import choice
-
-class Rizzler:
-    pass
-
-def test_function():
-    a = 0
-    while True:
-        if False:
-            a += 1
-            raise Error()
-        elif False:
-            a -= 1
-            continue
-        else:
-            a = 10
-            break
-
-    print(a)
-    return True
-```
-
-</td>
-</tr>
-</table>
+![Code Example](https://github.com/shamith09/vscode-pygyat/blob/main/code-example.png?raw=true)
 
 ## Installation
 
