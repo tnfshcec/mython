@@ -18,7 +18,11 @@ def kai_cenat():
             duke_dennis = 10
             break
 
-    print(duke_dennis)
+    try:
+        print(duke_dennis)
+    except:
+        [duke_dennis + 10 for duke_dennis in range(69)]
+
     return True
 
     try:
@@ -34,3 +38,4 @@ def kai_cenat():
     [duke_dennis + 10 for duke_dennis in range(69)]
 
 print(kai_cenat())
+

@@ -1,4 +1,4 @@
-from pygyat.importing import glaze
+from pygyat.glaze import glaze
 glaze("test_module", globals())
 
 test_module.func()
