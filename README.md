@@ -31,10 +31,10 @@ Implementation based on [Bython](https://github.com/mathialo/bython).
 
 ## Installation
 
-You can install PyGyat directly from PyPI using pip (with or without `sudo -H`, depending on your Python installation):
+You can install PyGyat directly from PyPI using pip (with or without `-H`, depending on your Python installation):
 
 ```
-$ sudo -H pip3 install pygyat
+$ pip3 install pygyat
 ```
 
 If you for some reason want to install it from the git repository you can use `git clone` and do a local install instead:
@@ -42,7 +42,7 @@ If you for some reason want to install it from the git repository you can use `g
 ```
 $ git clone https://github.com/shamith09/pygyat.git
 $ cd pygyat
-$ sudo -H pip3 install .
+$ pip3 install .
 ```
 
 The git version is sometimes a tiny bit ahead of the PyPI version, but not significantly.
@@ -50,7 +50,7 @@ The git version is sometimes a tiny bit ahead of the PyPI version, but not signi
 To uninstall, simply run 
 
 ```
-$ sudo pip3 uninstall pygyat
+$ pip3 uninstall pygyat
 ```
 
 which will undo all the changes.
