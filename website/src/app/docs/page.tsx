@@ -1,50 +1,105 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+
+const sections = [
+  { id: "introduction", title: "Introduction" },
+  { id: "key-features", title: "Key Features" },
+  { id: "code-example", title: "Code Example" },
+  { id: "installation", title: "Installation" },
+  { id: "keyword-mappings", title: "Keyword Mappings" },
+  { id: "quick-intro", title: "Quick Intro" },
+  { id: "repository-structure", title: "Repository Structure" }
+];
 
 export default function Documentation() {
-  return (
-    <div className="min-h-screen">
-      <main className="pt-24">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="prose prose-lg dark:prose-invert mx-auto">
-            <h1 className="text-4xl font-bold mb-4">PyGyat</h1>
-            <p className="text-xl mb-8">
-              Python with rizz. Be a sigma and mog your skibidi toilet opps
-              before they crashout. This language can only be used in Ohio.
-            </p>
-            <p className="mb-8">
-              PyGyat is a Python preprosessor which translates regular Python
-              code into brainrot by replacing certain keywords, operators, and
-              built in functions with iPad kid vocabulary.
-            </p>
-            <p className="mb-8">
-              Implementation based on{" "}
-              <Link
-                href="https://github.com/mathialo/bython"
-                className="text-purple-600 hover:underline"
-              >
-                Bython
-              </Link>
-              .
-            </p>
+  const [activeSection, setActiveSection] = useState("introduction");
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-20% 0px -80% 0px" }
+    );
+
+    sections.forEach(({ id }) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const navbarHeight = 80; // Height of navbar + some padding
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
+
+  return (
+    <div className="min-h-screen relative">
+      {/* Table of Contents */}
+      <aside className="hidden lg:block w-64 fixed left-0 top-16 h-[calc(100vh-4rem)] p-6 overflow-y-auto border-r border-gray-200 dark:border-gray-800">
+        <nav className="space-y-1">
+          {sections.map(({ id, title }) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id)}
+              className={`
+                block w-full text-left px-4 py-2 rounded-lg text-sm
+                transition-colors duration-200
+                ${activeSection === id 
+                  ? "bg-purple-100 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400" 
+                  : "hover:bg-gray-100 dark:hover:bg-gray-800"}
+              `}
+            >
+              {title}
+            </button>
+          ))}
+        </nav>
+      </aside>
+
+      {/* Main Content */}
+      <main className="w-full lg:pl-64">
+        <div className="container mx-auto px-4 max-w-4xl py-24">
+          <div className="prose prose-lg dark:prose-invert mx-auto">
+            <section id="introduction">
+              <h1 className="text-4xl font-bold mb-4">PyGyat</h1>
+              <p className="text-xl mb-8">
+                Python with rizz. Be a sigma and mog your skibidi toilet opps before they crashout. This language can only be used in Ohio.
+              </p>
+              <p className="mb-8">
+                PyGyat is a Python preprosessor which translates regular Python code into brainrot by replacing certain keywords, operators, and built in functions with iPad kid vocabulary.
+              </p>
+              <p className="mb-8">
+                Implementation based on <a href="https://github.com/mathialo/bython" className="text-purple-600 hover:underline">Bython</a>.
+              </p>
+            </section>
+
+            {/* Rest of your existing sections with their IDs */}
             <section id="key-features" className="mb-12">
               <h2 className="text-2xl font-bold mb-4">Key features</h2>
               <ul className="list-disc list-inside space-y-2">
                 <li>Write Python using brainrot terms instead.</li>
-                <li>
-                  Run PyGyat files using the <span className="font-mono bg-gray-800 rounded px-1">pygyat</span> command, just
-                  like Python.
-                </li>
+                <li>Run PyGyat files using the `pygyat` command, just like Python.</li>
                 <li>Translate Python files to PyGyat and vice versa.</li>
-                <li>
-                  Real Python keywords that have defined PyGyat mappings will
-                  not be allowed.
-                </li>
-                <li>
-                  Edit your PyGyat code with syntax highlighting with the{" "}
-                  <span className="font-mono bg-gray-800 rounded px-1">vscode-pygyat</span> extension.
-                </li>
+                <li>Real Python keywords that have defined PyGyat mappings will not be allowed.</li>
+                <li>Edit your PyGyat code with syntax highlighting with the `vscode-pygyat` extension.</li>
               </ul>
             </section>
 
@@ -281,7 +336,7 @@ export default function Documentation() {
               <div className="bg-gray-900 rounded-lg p-4 mb-4">
                 <pre>
                   <code className="text-gray-100">
-                    $ <span className="font-mono bg-gray-800 rounded px-1">pygyat</span> source.gyat arg1 arg2 ...
+                    $ pygyat source.gyat arg1 arg2 ...
                   </code>
                 </pre>
               </div>
@@ -292,7 +347,7 @@ export default function Documentation() {
               </p>
               <div className="bg-gray-900 rounded-lg p-4 mb-4">
                 <pre>
-                  <code className="text-gray-100">$ <span className="font-mono bg-gray-800 rounded px-1">py2gyat</span> test.py</code>
+                  <code className="text-gray-100">$ py2gyat test.py</code>
                 </pre>
               </div>
             </section>
