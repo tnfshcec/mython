@@ -3,8 +3,18 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <main className="pt-24">
+    <div className="min-h-screen relative">
+      <div 
+        className="absolute inset-x-0 top-0 h-[600px] pointer-events-none"
+        style={{
+          background: `linear-gradient(180deg, 
+            var(--purple-glow-start) 0%, 
+            var(--purple-glow-mid) 25%, 
+            transparent 100%)`
+        }}
+      />
+
+      <main className="relative pt-24">
         <section className="container mx-auto px-4 text-center">
           <Image
             src="/pygyat.png"
@@ -16,7 +26,7 @@ export default function Home() {
           <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
             Python with rizz
           </h1>
-          <p className="text-xl mb-8 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl mb-8 text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Be a sigma with PyGyat - a Python preprocessor that translates
             Python into brainrot
           </p>
@@ -89,9 +99,7 @@ export default function Home() {
             </h2>
             <div className="max-w-3xl mx-auto space-y-8">
               <div className="bg-gray-900 rounded-lg p-6 shadow-xl">
-                <pre>
-                  <code className="text-gray-100">pip install pygyat</code>
-                </pre>
+                <p className="text-gray-100 font-mono">pip install pygyat</p>
               </div>
               <p className="text-center text-gray-600 dark:text-gray-400">
                 Check out the{" "}

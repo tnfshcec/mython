@@ -8,7 +8,7 @@ export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800 z-50">
+    <nav className="fixed w-full bg-white/50 dark:bg-gray-900/30 backdrop-blur-sm border-b border-gray-200/30 dark:border-gray-800/30 z-50">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <Image src="/pygyat.png" alt="PyGyat Logo" width={32} height={32} />
