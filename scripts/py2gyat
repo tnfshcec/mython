@@ -243,14 +243,14 @@ def main():
         infile_string = "".join(infile.readlines())
 
         # pre_parsed = pre_reverse_parse(infile_string)
-        tempoutfile = open(cmd_args.input[0] + ".py2gyattempt", "w")
+        tempoutfile = open(cmd_args.input[0] + ".py2gyattemp", "w")
         # tempoutfile.write(pre_parsed)
         tempoutfile.write(infile_string)
         tempoutfile.close()
 
-        reverse_parse(cmd_args.input[0] + ".py2gyattempt", outputname)
+        reverse_parse(cmd_args.input[0] + ".py2gyattemp", outputname)
 
-        os.remove(cmd_args.input[0] + ".py2gyattempt")
+        os.remove(cmd_args.input[0] + ".py2gyattemp")
 
     except FileNotFoundError:
         logger.log_error("No file named %s" % cmd_args.input[0])
