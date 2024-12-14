@@ -1,5 +1,5 @@
 from setuptools import setup
-from pygyat import VERSION_NUMBER
+from mython import VERSION_NUMBER
 
 with open("README.md", "r") as fh:
     long_description = fh.read()

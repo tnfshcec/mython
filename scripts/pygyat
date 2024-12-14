@@ -3,9 +3,9 @@ import argparse
 import os
 import sys
 
-import pygyat.parser as parser
-from pygyat.logger import Logger
-from pygyat import VERSION_NUMBER
+import mython.parser as parser
+from mython.logger import Logger
+from mython import VERSION_NUMBER
 
 """
 PyGyat is Python with rizz.

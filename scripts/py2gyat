@@ -5,8 +5,8 @@ import argparse
 import sys
 from tokenize import tokenize, tok_name, INDENT, DEDENT, NAME
 
-from pygyat import VERSION_NUMBER, GYAT2PY_MAPPINGS
-from pygyat.logger import Logger
+from mython import VERSION_NUMBER, GYAT2PY_MAPPINGS
+from mython.logger import Logger
 
 
 def ends_in_py(word):

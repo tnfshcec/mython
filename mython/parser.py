@@ -1,7 +1,7 @@
 import re
 import os
 
-from pygyat import GYAT2PY_MAPPINGS
+from mython import GYAT2PY_MAPPINGS
 
 """
 Python module for converting pygyat code to python code.

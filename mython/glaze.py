@@ -1,8 +1,8 @@
 import sys
 import os
 
-import pygyat.parser
-import pygyat.logger
+import mython.parser
+import mython.logger
 
 
 """

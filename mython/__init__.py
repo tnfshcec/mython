@@ -2,7 +2,7 @@ VERSION_NUMBER = "1.0.6-beta"
 
 GYAT2PY_MAPPINGS = {
     "這是最後的警告": "try",
-    "今後不要在和我扯上關係了": "except",
+    "今後不要再和我扯上關係了": "except",
     "是又怎樣": "finally",
     "我立刻回來": "return",
     "希望你能傳達出去": "print",
