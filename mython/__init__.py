@@ -1,4 +1,4 @@
-VERSION_NUMBER = "1.0.6-beta"
+VERSION_NUMBER = "0.0.1-beta"
 
 GYAT2PY_MAPPINGS = {
     "這是最後的警告": "try",
@@ -34,5 +34,6 @@ GYAT2PY_MAPPINGS = {
     "在這裡": "in",
     "我應該說過這裡禁止進行個人攝影了": "pass",
     "我是來結束這樂團的": "exit",
-    "來開始溝通吧": "__init__"
+    "來開始溝通吧": "__init__",
+    "你還沒回答我", "input"
 }
