@@ -8,9 +8,9 @@ from mython.logger import Logger
 from mython import VERSION_NUMBER
 
 """
-PyGyat is Python with rizz.
+Mython is Python with rizz.
 
-This is a command-line utility to translate and run pygyat files.
+This is a command-line utility to translate and run mython files.
 
 Flags and arguments:
     -V, --version:      Print version number
@@ -19,18 +19,18 @@ Flags and arguments:
     -k, --keep:         Keep generated python files
     -2, --python2:      Use python2 instead of python3
     -o, --output:       Specify name of output file (if -c is present)
-    input,              PyGyat files to process
+    input,              Mython files to process
     args,               Arguments to script
 """
 
 def main():
     # Setup argument parser
-    argparser = argparse.ArgumentParser("pygyat", 
-        description="PyGyat is a python preprosessor that translates braces into indentation", 
+    argparser = argparse.ArgumentParser("mython", 
+        description="Mython is a python preprosessor that translates braces into indentation", 
         formatter_class=argparse.RawTextHelpFormatter)
     argparser.add_argument("-V", "--version", 
         action="version", 
-        version="PyGyat v%s\nShamith Pasula 2024" % VERSION_NUMBER)
+        version="Mython v%s\nTNFSHCEC 2024" % VERSION_NUMBER)
     argparser.add_argument("-v", "--verbose", 
         help="print progress",
         action="store_true") 
@@ -49,7 +49,7 @@ def main():
         nargs=1)
     argparser.add_argument("input",
         type=str, 
-        help="pygyat files to process",
+        help="mython files to process",
         nargs=1)
     argparser.add_argument("args",
         type=str,
@@ -64,7 +64,7 @@ def main():
 
     # Check for invalid combination of flags
     if cmd_args.output is not None and cmd_args.compile is False:
-        logger.log_error("Cannot specify output when pygyat is not in compile mode")
+        logger.log_error("Cannot specify output when mython is not in compile mode")
         sys.exit(1)
 
     # Where to output files
@@ -79,7 +79,7 @@ def main():
         logger.log_info("Placing files in this directory, but prefixing them with python_*")
 
 
-    # List of all files to translate from pygyat to python
+    # List of all files to translate from mython to python
     parse_que = []
 
     # Add all files from cmd line
@@ -179,7 +179,7 @@ def main():
                 os.remove(path_prefix + parser._change_file_name(filename, None))
 
     except:
-        logger.log_error("Could not delete created python files.\nSome garbage may remain in ~/.pygyattemp/")
+        logger.log_error("Could not delete created python files.\nSome garbage may remain in ~/.mythontemp/")
 
 
 if __name__ == '__main__':

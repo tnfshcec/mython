@@ -1,6 +1,6 @@
 VERSION_NUMBER = "0.0.1-beta"
 
-GYAT2PY_MAPPINGS = {
+MY2PY_MAPPINGS = {
     "這是最後的警告": "try",
     "今後不要再和我扯上關係了": "except",
     "是又怎樣": "finally",
