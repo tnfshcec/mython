@@ -5,16 +5,16 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 # Install python package, scripts and manual pages
-setup(name="pygyat",
+setup(name="mython",
       version=VERSION_NUMBER,
-      author="Shamith Pasula",
-      author_email="shamith09@berkeley.edu",
+      author="TNFSHCEC",
+      author_email="tnfshcec@gm.tnfsh.tn.edu.tw",
       license="MIT",
-      description="Python with rizz",
+      description="CodE Dream! It's Mython!!!!!",
       long_description=long_description,
       long_description_content_type="text/markdown",
-      url="https://github.com/shamith09/pygyat",
-      scripts=["scripts/gyat2py", "scripts/pygyat", "scripts/py2gyat"],
-      data_files=[("man/man1", ["etc/pygyat.1", "etc/py2gyat.1", "etc/gyat2py.1"])],
-      packages=["pygyat"],
+      url="https://github.com/tnfshcec/mython",
+      scripts=["scripts/my2py", "scripts/mython", "scripts/py2my"],
+      data_files=[("man/man1", ["etc/mython.1", "etc/py2my.1", "etc/my2py.1"])],
+      packages=["mython"],
       zip_safe=False)
